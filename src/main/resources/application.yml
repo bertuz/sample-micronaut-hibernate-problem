@@ -17,10 +17,11 @@ jpa:
         hbm2ddl:
           auto: update # <2>
         connection:
-          db-type: mysql # <3>
+          db-type: postgres # <3>
 # if commented out, the test works but the prod not, if uncommented out the other way round
 #          url: ${JDBC_URL}
 #          username: ${JDBC_USERNAME}
 #          password: ${JDBC_PASSWORD}
     reactive: true
 #end::jpa[]
+
