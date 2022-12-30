@@ -3,10 +3,10 @@ The codebase was the original one of this official [guide](https://guides.micron
 
 Modifications:
 - [build.gradle](build.gradle): added a runtime mysql driver at the end of the dependencies
-- [resources/application.yml](application.yml): extra section which is currently commented out.
+- [application.yml](./src/main/resources/application.yml): extra section which is currently commented out.
 
 ## How to reproduce the problem
-1. Build the code `./gradlew build` or run it locally `./gradlew run`. [https://micronaut-projects.github.io/micronaut-test-resources/snapshot/guide/#modules-databases-r2dbc](test resources) will do its job;
+1. Build the code `./gradlew build` or run it locally `./gradlew run`.  [test resources](https://micronaut-projects.github.io/micronaut-test-resources/snapshot/guide/#modules-databases-r2dbc) will do its job;
 2. Try to run as production. I personally follow this path:
     ```
    ./runw buildDocker
