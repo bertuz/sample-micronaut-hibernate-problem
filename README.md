@@ -1,3 +1,17 @@
+
+
+```
+export JDBC_URL=jdbc:mysql://192.168.1.130:3306/test
+export JDBC_USERNAME=test
+export JDBC_PASSWORD=test
+export JDBC_DRIVER=com.mysql.jdbc.Driver
+
+ docker run --rm -e JDBC_URL=$JDBC_URL -e JDBC_USERNAME=$JDBC_USERNAME -e JDBC_PASSWORD=$JDBC_PASSWORD -e JDBC_DRIVER=$JDBC_DRIVER -e MICRONAUT_ENVIRONMENTS=prod -it -p 8080:8080 4d0f4adca883  
+ 
+docker run --rm -e JDBC_URL=$JDBC_URL -e JDBC_USERNAME=$JDBC_USERNAME -e JDBC_PASSWORD=$JDBC_PASSWORD -e JDBC_DRIVER=$JDBC_DRIVER -e MICRONAUT_ENVIRONMENTS=prod -it -p 8080:8080 <your-generated-image-id>
+```
+
+
 ## Problem sample
 The codebase was the original one of this official [guide](https://guides.micronaut.io/latest/micronaut-data-hibernate-reactive-gradle-kotlin.html#testing-the-application) on micronaut.
 

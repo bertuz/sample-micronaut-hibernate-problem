@@ -78,3 +78,7 @@ micronaut {
 tasks.named('dockerfile') {
     baseImage.set("eclipse-temurin:17.0.5_8-jre")
 }
+
+//run {
+//    systemProperty('micronaut.environments','dev')
+//}

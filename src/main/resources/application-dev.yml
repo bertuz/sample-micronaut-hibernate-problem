@@ -1,0 +1,26 @@
+micronaut:
+  application:
+    name: micronaut-guide
+netty:
+  default:
+    allocator:
+      max-order: 3
+#tag::jpa[]
+jpa:
+  default:
+    entity-scan:
+      packages:
+        - 'example.micronaut.domain' # <1>
+    properties:
+      hibernate:
+        show-sql: true
+        hbm2ddl:
+          auto: update # <2>
+        connection:
+          db-type: mysql # <3>
+          # if commented out, the test works but the prod not, if uncommented out the other way round
+#          url: ${JDBC_URL}
+#          username: ${JDBC_USERNAME}
+#          password: ${JDBC_PASSWORD}
+    reactive: true
+#end::jpa[]
