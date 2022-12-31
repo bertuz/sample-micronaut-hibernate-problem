@@ -33,7 +33,7 @@ docker run --rm -e JDBC_URL=$JDBC_URL -e JDBC_USERNAME=$JDBC_USERNAME -e JDBC_PA
 The codebase was the original one of this official [guide](https://guides.micronaut.io/latest/micronaut-data-hibernate-reactive-gradle-kotlin.html#testing-the-application) on micronaut.
 
 Modifications:
-- [build.gradle](build.gradle): added a runtime mysql driver at the end of the dependencies
+- [build.gradle](build.gradle.kts): added a runtime mysql driver at the end of the dependencies
 - [application.yml](./src/main/resources/application.yml): extra section which is currently commented out.
 
 ## How to reproduce the problem

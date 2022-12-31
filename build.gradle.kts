@@ -10,6 +10,8 @@ plugins {
 
 version = "0.1"
 group = "example.micronaut"
+val kotlinVersion=project.properties.get("kotlinVersion")
+
 
 repositories {
     mavenCentral()
@@ -72,7 +74,9 @@ tasks {
         }
     }
 }
-graalvmNative.toolchainDetection = false
+
+graalvmNative.toolchainDetection.set(false)
+
 micronaut {
     runtime("netty")
     testRuntime("junit5")
@@ -86,10 +90,6 @@ micronaut {
     }
 }
 
-tasks.named('dockerfile') {
+tasks.named<io.micronaut.gradle.docker.MicronautDockerfile>("dockerfile") {
     baseImage.set("eclipse-temurin:17.0.5_8-jre")
 }
-
-//run {
-//    systemProperty('micronaut.environments','dev')
-//}
