@@ -10,21 +10,21 @@ import javax.transaction.Transactional
 import javax.validation.constraints.NotBlank
 
 @Repository // <1>
-abstract class GenreRepository: ReactorPageableRepository<Genre, Long> { // <2>
+abstract class GenreRepository : ReactorPageableRepository<Genre, Long> { // <2>
 
-    fun save(@NotBlank name: String): Mono<Genre?> {
-        return save(Genre(id = null, name = name))
-    }
+  fun save(@NotBlank name: String): Mono<Genre?> {
+    return save(Genre(id = null, name = name))
+  }
 
-    @Transactional
-    open fun saveWithException(@NotBlank name: String): Mono<Genre> {
-        return save(name)
-            .handle { _, sink ->
-                sink.error(DataAccessException("test exception"))
-            }
-    }
+  @Transactional
+  open fun saveWithException(@NotBlank name: String): Mono<Genre> {
+    return save(name)
+      .handle { _, sink ->
+        sink.error(DataAccessException("test exception"))
+      }
+  }
 
-    fun update(@Id id: Long, @NotBlank name: String): Mono<Genre> {
-        return update(Genre(id = id, name = name))
-    }
+  fun update(@Id id: Long, @NotBlank name: String): Mono<Genre> {
+    return update(Genre(id = id, name = name))
+  }
 }

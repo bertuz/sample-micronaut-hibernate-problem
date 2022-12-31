@@ -6,8 +6,8 @@ export JDBC_USERNAME=test
 export JDBC_PASSWORD=test
 export JDBC_DRIVER=com.mysql.jdbc.Driver
 
- docker run --rm -e JDBC_URL=$JDBC_URL -e JDBC_USERNAME=$JDBC_USERNAME -e JDBC_PASSWORD=$JDBC_PASSWORD -e JDBC_DRIVER=$JDBC_DRIVER -e MICRONAUT_ENVIRONMENTS=prod -it -p 8080:8080 4d0f4adca883  
- 
+ docker run --rm -e JDBC_URL=$JDBC_URL -e JDBC_USERNAME=$JDBC_USERNAME -e JDBC_PASSWORD=$JDBC_PASSWORD -e JDBC_DRIVER=$JDBC_DRIVER -e MICRONAUT_ENVIRONMENTS=prod -it -p 8080:8080 4d0f4adca883
+
 docker run --rm -e JDBC_URL=$JDBC_URL -e JDBC_USERNAME=$JDBC_USERNAME -e JDBC_PASSWORD=$JDBC_PASSWORD -e JDBC_DRIVER=$JDBC_DRIVER -e MICRONAUT_ENVIRONMENTS=prod -it -p 8080:8080 <your-generated-image-id>
 ```
 
@@ -42,18 +42,18 @@ Modifications:
     ```
    ./runw buildDocker
    # copy the image id
-   
+
    # run a local mysql
    docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -e MYSQL_DATABASE=test -e MYSQL_USER=test -e MYSQL_PASSWORD=test -p 3306:3306 -d mysql:8.0.30
-   
+
    # export the expected env vars
    export JDBC_URL=jdbc:mysql://<localhost-or-your-ip>:3306/test
    export JDBC_USER=test
    export JDBC_PASSWORD=test
    export JDBC_DRIVER=com.mysql.jdbc.Driver
-   
+
     docker run --rm -e DATASOURCES_DEFAULT_URL=$JDBC_URL -e DATASOURCES_DEFAULT_USERNAME=$JDBC_USER -e DATASOURCES_DEFAULT_PASSWORD=$JDBC_PASSWORD -it -p 8080:8080 <your-generated-image-id>
-   
+
    # now you should stumble into the error!
    Caused by: org.hibernate.HibernateError: The configuration property 'hibernate.connection.url' was not provided, or is in invalid format. This is required when using the default DefaultSqlClientPool: either provide the configuration setting or integrate with a different SqlClientPool implementation
    ```

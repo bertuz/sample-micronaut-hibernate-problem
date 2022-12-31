@@ -6,14 +6,14 @@ import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.validation.constraints.NotBlank
-import javax.validation.constraints.NotNull
 
 @Serdeable
 @Entity
-class Genre(@Id
-            @GeneratedValue(strategy = GenerationType.IDENTITY)
-            val id: Long?,
+class Genre(
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  val id: Long?,
 
-            @NotBlank
-            var name: String
+  @NotBlank
+  var name: String
 )

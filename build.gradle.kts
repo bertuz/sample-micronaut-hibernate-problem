@@ -6,6 +6,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
     id("io.micronaut.application") version "3.6.7"
     id("io.micronaut.test-resources") version "3.6.7"
+    id("com.diffplug.spotless") version "6.12.0"
 }
 
 version = "0.1"
@@ -59,21 +60,33 @@ application {
     mainClass.set("example.micronaut.ApplicationKt")
 }
 java {
-    sourceCompatibility = JavaVersion.toVersion("11")
+    sourceCompatibility = JavaVersion.toVersion("17")
 }
 
 tasks {
     compileKotlin {
         kotlinOptions {
-            jvmTarget = "11"
+            jvmTarget = "17"
         }
     }
     compileTestKotlin {
         kotlinOptions {
-            jvmTarget = "11"
+            jvmTarget = "17"
         }
     }
 }
+
+spotless {
+    kotlin {
+        // version, setUseExperimental, userData and editorConfigOverride are all optional
+        ktlint("0.45.2")
+            .setUseExperimental(true)
+            .userData(mapOf("android" to "false"))
+            .editorConfigOverride(mapOf("indent_size" to 2))
+    }
+}
+
+tasks.check { dependsOn(tasks.spotlessCheck) }
 
 graalvmNative.toolchainDetection.set(false)
 
